@@ -9,17 +9,18 @@ use yii\db\Query;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model cs\base\BaseForm */
 
-$this->title = 'Добавить генератор';
+$this->title = $model->header;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
-    <h1 class="page-header"><?= Html::encode($this->title) ?></h1>
-
+    <div class="page-header">
+        <h1><?= Html::encode($this->title) ?></h1>
+    </div>
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
         <div class="alert alert-success">
-            Успешно добавлено.
+            Успешно обновлено.
         </div>
 
     <?php else: ?>
@@ -31,16 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     'id'      => 'contact-form',
                     'options' => ['enctype' => 'multipart/form-data']
                 ]); ?>
-                <?= $model->field($form, 'name') ?>
-                <?= $model->field($form, 'v') ?>
-                <?= $model->field($form, 'kvt') ?>
-                <?= $model->field($form, 'price') ?>
+                <?= $model->field($form, 'header') ?>
+                <?= $model->field($form, 'description')->textarea(['rows' => 10]) ?>
                 <?= $model->field($form, 'content') ?>
                 <?= $model->field($form, 'image') ?>
 
                 <hr>
                 <div class="form-group">
-                    <?= Html::submitButton('Добавить', [
+                    <?= Html::submitButton('Обновить', [
                         'class' => 'btn btn-default',
                         'name'  => 'contact-button',
                         'style' => 'width:100%',

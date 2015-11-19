@@ -22,6 +22,8 @@ class Subscribe
         'subscribe_is_site_update',
         'subscribe_is_news',
         'subscribe_is_tesla',
+        'subscribe_is_rod',
+        'subscribe_is_telenadar',
     ];
 
 
@@ -45,7 +47,7 @@ class Subscribe
                 $where = ['subscribe_is_site_update' => 1];
                 break;
             case self::TYPE_MANUAL:
-                $where = ['subscribe_is_tesla' => 1];
+                $where = ['subscribe_is_telenadar' => 1];
 //                $where = ['subscribe_is_test' => 1];
                 break;
         }

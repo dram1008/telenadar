@@ -13,7 +13,6 @@ return [
 
     'captcha'                                                      => 'site/captcha',
 
-
     'checkBoxTreeMask/add'                                         => 'check_box_tree_mask/add',
     'checkBoxTreeMask/addInto'                                     => 'check_box_tree_mask/add_into',
     'checkBoxTreeMask/delete'                                      => 'check_box_tree_mask/delete',
@@ -29,6 +28,24 @@ return [
     'admin/subscribe/<id:\\d+>'                                    => 'admin_subscribe/view',
     'admin/subscribe/<id:\\d+>/edit'                               => 'admin_subscribe/edit',
 
+    'admin/events'                                                 => 'admin_events/index',
+    'admin/events/add'                                             => 'admin_events/add',
+    'admin/events/<id:\\d+>/delete'                                => 'admin_events/delete',
+    'admin/events/<id:\\d+>/edit'                                  => 'admin_events/edit',
+    'admin/events/<id:\\d+>/subscribe'                             => 'admin_events/subscribe',
+
+    'admin/articleList'                                            => 'admin_article/index',
+    'admin/articleList/add'                                        => 'admin_article/add',
+    'admin/articleList/<id:\\d+>/delete'                           => 'admin_article/delete',
+    'admin/articleList/<id:\\d+>/edit'                             => 'admin_article/edit',
+    'admin/articleList/<id:\\d+>/subscribe'                        => 'admin_article/subscribe',
+
+    'admin/dictionary'                                             => 'admin_dictionary/index',
+    'admin/dictionary/add'                                         => 'admin_dictionary/add',
+    'admin/dictionary/<id:\\d+>/delete'                            => 'admin_dictionary/delete',
+    'admin/dictionary/<id:\\d+>/edit'                              => 'admin_dictionary/edit',
+    'admin/dictionary/<id:\\d+>/subscribe'                         => 'admin_dictionary/subscribe',
+
     '/'                                                            => 'site/index',
     'log'                                                          => 'site/log',
     'activate/<code:\\w+>'                                         => 'site/activate',
@@ -36,27 +53,13 @@ return [
     'contact'                                                      => 'site/contact',
     'login'                                                        => 'site/login',
     'logout'                                                       => 'site/logout',
-    'production/<id:\\d+>'                                         => 'site/production_item',
-    'diller'                                                       => 'site/diller',
     'articles'                                                     => 'site/articles',
+    'about'                                                        => 'site/about',
+    'dictionary'                                                   => 'site/dictionary',
+    'dictionary/<id:\\d+>'                                         => 'site/dictionary_item',
+    'events'                                                       => 'site/events',
+    'events/<id:\\d+>'                                                       => 'site/events_item',
     'articles/<year:\\d{4}>/<month:\\d{2}>/<day:\\d{2}>/<id:\\w+>' => 'site/article',
 
 
-    'in'                                                           => 'site/in',
-    'out'                                                          => 'site/out',
-    'about'                                                        => 'site/about',
-    'trasfere'                                                     => 'site/trasfere',
-
-    'buy/<id:\\d+>'                                                => 'site/buy',
-
-    'admin/articleList'                                            => 'admin_article/index',
-    'admin/articleList/add'                                        => 'admin_article/add',
-    'admin/articleList/addFromPage'                                => 'admin_article/add_from_page',
-    'admin/articleList/<id:\\d+>/delete'                           => 'admin_article/delete',
-    'admin/articleList/<id:\\d+>/edit'                             => 'admin_article/edit',
-    'admin/articleList/<id:\\d+>/subscribe'                        => 'admin_article/subscribe',
-
-
-    'admin/requests'                                               => 'admin_requests/index',
-    'admin/requests/<id:\\d+>/view'                                => 'admin_requests/view',
 ];

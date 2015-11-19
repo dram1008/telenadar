@@ -18,7 +18,7 @@ use yii\helpers\Html;
  */
 class Article extends \cs\base\BaseForm
 {
-    const TABLE = 'rod_article_list';
+    const TABLE = 'tel_article_list';
 
     public $id;
     public $header;

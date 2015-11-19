@@ -21,7 +21,7 @@ use yii\helpers\Url;
  */
 class SubscribeHistory extends \cs\base\BaseForm
 {
-    const TABLE = 'tg_subscribe_history';
+    const TABLE = 'tel_subscribe_history';
 
     public $id;
     public $content;

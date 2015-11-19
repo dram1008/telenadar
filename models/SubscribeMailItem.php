@@ -7,5 +7,5 @@ use yii\db\Query;
 
 class SubscribeMailItem extends \cs\base\DbRecord
 {
-    const TABLE = 'tg_subscribe_mail_list';
+    const TABLE = 'tel_subscribe_mail_list';
 }

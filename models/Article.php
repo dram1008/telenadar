@@ -8,7 +8,7 @@ use yii\db\Query;
 
 class Article extends \cs\base\DbRecord
 {
-    const TABLE = 'rod_article_list';
+    const TABLE = 'tel_article_list';
 
     public function incViewCounter()
     {

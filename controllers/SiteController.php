@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\Article;
+use app\models\Dictionary;
+use app\models\Event;
 use app\models\Form\NewPassword;
 use app\models\Form\Request;
 use app\models\Log;
@@ -62,16 +64,6 @@ class SiteController extends BaseController
         return $this->render('index');
     }
 
-    public function actionTrasfere()
-    {
-        return $this->render();
-    }
-
-    public function actionIn()
-    {
-        return $this->render();
-    }
-
     public function actionArticles()
     {
         return $this->render();
@@ -91,11 +83,6 @@ class SiteController extends BaseController
         return $this->render([
             'item' => $item,
         ]);
-    }
-
-    public function actionOut()
-    {
-        return $this->render();
     }
 
     public function actionAbout()
@@ -171,61 +158,6 @@ class SiteController extends BaseController
         ]);
     }
 
-    public function actionProduction()
-    {
-        return $this->render([]);
-    }
-
-    public function actionProduction_item()
-    {
-        $id = self::getParam('id');
-        $item = Product::find($id);
-
-        return $this->render([
-            'item' => $item,
-        ]);
-    }
-
-    public function actionMap()
-    {
-        return $this->render([
-            'lat' => self::getParam('lat'),
-            'lng' => self::getParam('lng'),
-        ]);
-    }
-
-    public function actionProm()
-    {
-        return $this->render([]);
-    }
-
-    public function actionService()
-    {
-        return $this->render([]);
-    }
-
-    public function actionBuy($id)
-    {
-        $model = new Request();
-
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-
-            return ActiveForm::validate($model);
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $model->insert($id)) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        } else {
-            return $this->render([
-                'model' => $model,
-                'id'    => $id,
-            ]);
-        }
-    }
-
     public function actionLog()
     {
         return $this->render([
@@ -274,22 +206,50 @@ class SiteController extends BaseController
         ]);
     }
 
-    public function actionRent()
+    public function actionDictionary()
     {
         return $this->render([]);
     }
 
-    public function actionDostavka()
+    /**
+     * Выводит термин
+     *
+     * @param int $id идентификатор термина
+     * @return string
+     * @throws \cs\web\Exception
+     */
+    public function actionDictionary_item($id)
     {
-        return $this->render([]);
+        $item = Dictionary::find($id);
+        if (is_null($item)) {
+             throw new Exception('Не найден термин');
+        }
+
+        return $this->render([
+            'item' => $item,
+        ]);
     }
 
-    public function actionDiller()
+    /**
+     * Выводит событие
+     *
+     * @param int $id идентификатор термина
+     * @return string
+     * @throws \cs\web\Exception
+     */
+    public function actionEvents_item($id)
     {
-        return $this->render([]);
+        $item = Event::find($id);
+        if (is_null($item)) {
+             throw new Exception('Не найдено событие');
+        }
+
+        return $this->render([
+            'item' => $item,
+        ]);
     }
 
-    public function actionHouse()
+    public function actionEvents()
     {
         return $this->render([]);
     }

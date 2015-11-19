@@ -7,7 +7,7 @@ use yii\db\Query;
 
 class SubscribeHistory extends \cs\base\DbRecord
 {
-    const TABLE = 'tg_subscribe_history';
+    const TABLE = 'tel_subscribe_history';
 
     public function setContent($data)
     {

@@ -23,7 +23,7 @@ $this->registerMetaTag(['name' => 'title', 'content' => $this->title]);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name='yandex-verification' content='6721c497dd2fba14'/>
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?> :: Агентство Сохранения Рода</title>
+    <title><?= Html::encode($this->title) ?> :: Летная Академия Вознесенных Владык Теленадар</title>
     <link rel="shortcut icon" href="/images/ico.png">
     <?php $this->head() ?>
 </head>
@@ -58,10 +58,8 @@ $this->registerMetaTag(['name' => 'title', 'content' => $this->title]);
                     'items'   => [
                         ['label' => 'О нас', 'url' => ['site/about']],
                         ['label' => 'Статьи', 'url' => ['site/articles']],
-                        ['label' => 'Уход', 'url' => ['site/out']],
-                        ['label' => 'Переход', 'url' => ['site/trasfere']],
-                        ['label' => 'Приход', 'url' => ['site/in']],
-                        ['label' => 'Сотрудничество', 'url' => ['site/diller']],
+                        ['label' => 'Расписание', 'url' => ['site/events']],
+                        ['label' => 'Словарь', 'url' => ['site/dictionary']],
                         ['label' => 'Контакты', 'url' => ['site/contact']],
                     ],
                 ]);
@@ -95,13 +93,12 @@ $this->registerMetaTag(['name' => 'title', 'content' => $this->title]);
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="<?= \yii\helpers\Url::to(['cabinet/requests']) ?>">Мои заказы</a></li>
-                                <li><a href="<?= \yii\helpers\Url::to(['cabinet/profile']) ?>">Мой профиль</a></li>
-
                                 <?php if (Yii::$app->user->identity->isAdmin()) { ?>
                                     <li class="divider"></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_subscribe/index']) ?>">Рассылки</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_article/index']) ?>">Статьи</a></li>
+                                    <li><a href="<?= \yii\helpers\Url::to(['admin_events/index']) ?>">События</a></li>
+                                    <li><a href="<?= \yii\helpers\Url::to(['admin_dictionary/index']) ?>">Словарь</a></li>
                                 <?php } ?>
 
                                 <li class="divider"></li>
@@ -146,45 +143,13 @@ $this->registerMetaTag(['name' => 'title', 'content' => $this->title]);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Агентство Сохранения Рода <?= date('Y') ?> &middot;
-            <a href="http://www.galaxysss.ru/">Галактический Союз Сил Света</a> &middot;
-            <a href="http://www.galaxysss.ru/category/money/425">Progressive Spirit</a> &middot;
-            при поддержке Владык Кармы и Хранителей Судьбы и при участии <a href="http://www.galaxysss.ru/category/study/171" target="_blank">Академии Родоведения</a></p>
+        <p class="pull-left">&copy; Теленадар 2015 - Летная Академия Вознесенных Владык</p>
     </div>
 </footer>
 
 <?php $this->endBody() ?>
 
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter32845652 = new Ya.Metrika({
-                    id:32845652,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true,
-                    trackHash:true
-                });
-            } catch(e) { }
-        });
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/32845652" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </body>
 </html>
 <?php $this->endPage() ?>
