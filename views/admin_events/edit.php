@@ -33,14 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'options' => ['enctype' => 'multipart/form-data']
                 ]); ?>
                 <?= $model->field($form, 'name') ?>
-                <?= $model->field($form, 'start_date') ?>
-                <?= $model->field($form, 'start_time') ?>
-                <?= $model->field($form, 'end_date') ?>
-                <?= $model->field($form, 'end_time') ?>
+                <?= $model->field($form, 'date') ?>
                 <?= $model->field($form, 'content') ?>
                 <?= $model->field($form, 'image') ?>
-                <?= $model->field($form, 'link') ?>
-                <?= $model->field($form, 'date') ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Обновить', [

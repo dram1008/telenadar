@@ -60,6 +60,7 @@ $this->registerMetaTag(['name' => 'title', 'content' => $this->title]);
                         ['label' => 'Статьи', 'url' => ['site/articles']],
                         ['label' => 'Расписание', 'url' => ['site/events']],
                         ['label' => 'Словарь', 'url' => ['site/dictionary']],
+                        ['label' => 'Магазин', 'url' => ['shop/index']],
                         ['label' => 'Контакты', 'url' => ['site/contact']],
                     ],
                 ]);
@@ -93,10 +94,12 @@ $this->registerMetaTag(['name' => 'title', 'content' => $this->title]);
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="<?= \yii\helpers\Url::to(['cabinet/profile']) ?>">Мой профиль</a></li>
                                 <?php if (Yii::$app->user->identity->isAdmin()) { ?>
                                     <li class="divider"></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_subscribe/index']) ?>">Рассылки</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_article/index']) ?>">Статьи</a></li>
+                                    <li><a href="<?= \yii\helpers\Url::to(['admin_users/index']) ?>">Пользователи</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_events/index']) ?>">События</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_dictionary/index']) ?>">Словарь</a></li>
                                 <?php } ?>

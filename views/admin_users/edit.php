@@ -9,7 +9,7 @@ use yii\db\Query;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model cs\base\BaseForm */
 
-$this->title = 'Добавить событие';
+$this->title = $model->header;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
         <div class="alert alert-success">
-            Успешно добавлено.
+            Успешно обновлено.
         </div>
 
     <?php else: ?>
@@ -32,15 +32,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     'id'      => 'contact-form',
                     'options' => ['enctype' => 'multipart/form-data']
                 ]); ?>
-                <?= $model->field($form, 'name') ?>
-                <?= $model->field($form, 'date') ?>
-                <?= $model->field($form, 'content') ?>
-                <?= $model->field($form, 'image') ?>
+                <?= $form->field($model, 'header')->label('Название') ?>
+                <?= $model->field($form, 'source') ?>
+                <?= $form->field($model, 'description')->label('Кратко')->textarea(['rows' => 20]) ?>
+                <?= $form->field($model, 'content')->label('Полно')->widget('cs\Widget\HtmlContent\HtmlContent') ?>
+                <?= $form->field($model, 'image')->label('Картинка')->widget('cs\Widget\FileUpload2\FileUpload') ?>
+                <?= $model->field($form, 'is_add_image') ?>
+                <?= $form->field($model, 'tree_node_id_mask')->label('Категории')->widget('cs\Widget\CheckBoxTreeMask\CheckBoxTreeMask', [
+                    'tableName' => 'rod_article_tree',
+                ]) ?>
 
+                <hr>
                 <div class="form-group">
-                    <?= Html::submitButton('Добавить', [
+                    <?= Html::submitButton('Обновить', [
                         'class' => 'btn btn-default',
-                        'name'  => 'contact-button'
+                        'name'  => 'contact-button',
+                        'style' => 'width:100%',
                     ]) ?>
                 </div>
                 <?php ActiveForm::end(); ?>

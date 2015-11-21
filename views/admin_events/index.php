@@ -15,7 +15,7 @@ $('.buttonDelete').click(function (e) {
             ajaxJson({
                 url: '/admin/events/' + id + '/delete',
                 success: function (ret) {
-                    infoWindow('Успешно', function() {
+                    showInfo('Успешно', function() {
                         $('#newsItem-' + id).remove();
                     });
                 }
@@ -32,7 +32,7 @@ $('.buttonDelete').click(function (e) {
             ajaxJson({
                 url: '/admin/events/' + id + '/subscribe',
                 success: function (ret) {
-                    infoWindow('Успешно', function() {
+                    showInfo('Успешно', function() {
                         buttonSubscribe.remove();
                     });
                 }
