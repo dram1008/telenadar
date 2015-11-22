@@ -40,6 +40,11 @@ return [
     'admin/articleList/<id:\\d+>/edit'                             => 'admin_article/edit',
     'admin/articleList/<id:\\d+>/subscribe'                        => 'admin_article/subscribe',
 
+    'admin/products'                                               => 'admin_products/index',
+    'admin/products/add'                                           => 'admin_products/add',
+    'admin/products/<id:\\d+>/delete'                              => 'admin_products/delete',
+    'admin/products/<id:\\d+>/edit'                                => 'admin_products/edit',
+
     'admin/users'                                                  => 'admin_users/index',
     'admin/users/<id:\\d+>/delete'                                 => 'admin_users/delete',
     'admin/users/<id:\\d+>/edit'                                   => 'admin_users/edit',
@@ -49,6 +54,12 @@ return [
     'admin/dictionary/<id:\\d+>/delete'                            => 'admin_dictionary/delete',
     'admin/dictionary/<id:\\d+>/edit'                              => 'admin_dictionary/edit',
     'admin/dictionary/<id:\\d+>/subscribe'                         => 'admin_dictionary/subscribe',
+
+    'admin/news'                                                   => 'admin_news/index',
+    'admin/news/add'                                               => 'admin_news/add',
+    'admin/news/<id:\\d+>/delete'                                  => 'admin_news/delete',
+    'admin/news/<id:\\d+>/edit'                                    => 'admin_news/edit',
+    'admin/news/<id:\\d+>/subscribe'                               => 'admin_news/subscribe',
 
     'shop'                                                         => 'shop/index',
 

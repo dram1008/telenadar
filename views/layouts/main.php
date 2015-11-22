@@ -97,10 +97,13 @@ $this->registerMetaTag(['name' => 'title', 'content' => $this->title]);
                                 <li><a href="<?= \yii\helpers\Url::to(['cabinet/profile']) ?>">Мой профиль</a></li>
                                 <?php if (Yii::$app->user->identity->isAdmin()) { ?>
                                     <li class="divider"></li>
+                                    <li role="presentation" class="dropdown-header">Раздел админа</li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_subscribe/index']) ?>">Рассылки</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_article/index']) ?>">Статьи</a></li>
+                                    <li><a href="<?= \yii\helpers\Url::to(['admin_news/index']) ?>">Новости</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_users/index']) ?>">Пользователи</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_events/index']) ?>">События</a></li>
+                                    <li><a href="<?= \yii\helpers\Url::to(['admin_products/index']) ?>">Магазин</a></li>
                                     <li><a href="<?= \yii\helpers\Url::to(['admin_dictionary/index']) ?>">Словарь</a></li>
                                 <?php } ?>
 

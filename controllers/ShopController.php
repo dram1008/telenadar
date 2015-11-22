@@ -20,13 +20,44 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use yii\web\Response;
+use yii\db\Query;
 
 class ShopController extends BaseController
 {
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', [
+            'rows' => $this->getRows(null),
+        ]);
+    }
+
+    /**
+     * Возвращает элементы списка
+     * @return array
+     * [[
+     *  'id' =>
+     *  'name' =>
+     *  'nodes' => array
+     * ], ... ]
+     */
+    public function getRows($parentId)
+    {
+        $rows = (new Query())
+            ->select('id,name')
+            ->from('tel_product_tree')
+            ->where(['parent_id' => $parentId])
+            ->orderBy(['sort_index' => SORT_ASC])
+            ->all();
+        for($i = 0; $i < count($rows); $i++ ) {
+            $item = &$rows[$i];
+            $rows2 = $this->getRows($item['id']);
+            if (count($rows2) > 0) {
+                $item['nodes'] = $rows2;
+            }
+        }
+
+        return $rows;
     }
 
 }

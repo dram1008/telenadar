@@ -10,6 +10,7 @@ use yii\captcha\Captcha;
 
 $this->title = 'Магазин';
 $this->params['breadcrumbs'][] = $this->title;
+\cs\services\VarDumper::dump($rows);
 ?>
 <div class="site-contact">
     <h1 class="page-header"><?= Html::encode($this->title) ?></h1>
@@ -27,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('../blocks/share', [
         'url'         => \yii\helpers\Url::current([], true),
         'image'       => \yii\helpers\Url::to('/images/controller/site/index/3.jpg', true),
-        'title'       => 'Купить генератор Теслы',
+        'title'       => 'Леьная академия вознесенных владык',
         'description' => 'Электрогенератор вырабатывает электроэнергию, не потребляя какого-либо топлива. Время работы не ограничено. Не нужно ветра, солнца, воды и т.п.',
     ]) ?>
 </div>
