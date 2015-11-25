@@ -28,6 +28,7 @@ class Product extends \cs\base\BaseForm
     public $view_counter;
     public $tree_node_id;
     public $description;
+    public $price;
 
     function __construct($fields = [])
     {
@@ -37,6 +38,12 @@ class Product extends \cs\base\BaseForm
                 'Название',
                 1,
                 'string'
+            ],
+            [
+                'price',
+                'Стоимость',
+                1,
+                'integer'
             ],
             [
                 'content',

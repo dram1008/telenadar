@@ -77,6 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ИИСУС ХРИСТОС, МАТЬ МАРИЯ, ЭЛЬ – МОРИЯ, КУТ ХУМИ, СЕН-ЖЕРМЕН,<br />
                 САНАТ КУМАРА, АРХАНГЕЛ МИХАИЛ, АРХАНГЕЛ ГАВРИИЛ.
             </p>
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/fPyKJdFN91c" frameborder="0" allowfullscreen=""></iframe>
         </div>
     </div>
 
@@ -85,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('../blocks/share', [
         'url'         => \yii\helpers\Url::current([], true),
         'image'       => \yii\helpers\Url::to('/images/controller/site/index/3.jpg', true),
-        'title'       => 'Купить генератор Теслы',
+        'title'       => 'О летной академии вознесенных владык',
         'description' => 'Электрогенератор вырабатывает электроэнергию, не потребляя какого-либо топлива. Время работы не ограничено. Не нужно ветра, солнца, воды и т.п.',
     ]) ?>
 </div>

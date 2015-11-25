@@ -24,7 +24,9 @@ $functionDay = function($day) {
     if (is_null($id)) {
         return $day;
     } else {
-        return Html::a($day, ['site/events_item', 'id' => $id]);
+        return [
+            'content' => Html::a($day, ['site/events_item', 'id' => $id])
+        ];
     }
 }
 
@@ -56,7 +58,7 @@ $functionDay = function($day) {
 
 
             /** @var int $dayOfWeek день недели 1-7 начало с пн */
-            $dayOfWeek = 1;
+            $dayOfWeek = date('N');
             /** @var int $n кол-во недель в отображаемом месяце */
             $n = 5;
             /** @var int $d день месяца от 1 до 31 */
@@ -92,14 +94,38 @@ $functionDay = function($day) {
             }
 
             ?>
+            <?php
+            $monthList = [
+                'Январь',
+                'Февраль',
+                'Март',
+                'Апрель',
+                'Май',
+                'Июнь',
+                'Июль',
+                'Август',
+                'Сентябрь',
+                'Октябрь',
+                'Ноябрь',
+                'Декабрь',
+            ];
+            ?>
+
+            <h2 class="page-header"><?= $monthList[date('n')-1] ?> <?= date('Y') ?></h2>
 
             <table>
                 <?php foreach($days as $row) { ?>
                     <tr>
                         <?php foreach($row as $day) { ?>
-                            <td width="20">
-                                <?= $day ?>
-                            </td>
+                            <?php if (is_array($day)) { ?>
+                                <td width="40" height="40" style="border-bottom: 1px solid #ccc; background-color: #eee; text-align: center;">
+                                    <?= $day['content'] ?>
+                                </td>
+                            <?php } else { ?>
+                                <td width="40" height="40" style="border-bottom: 1px solid #ccc; text-align: center;">
+                                    <?= $day ?>
+                                </td>
+                            <?php } ?>
                         <?php } ?>
                     </tr>
                 <?php } ?>

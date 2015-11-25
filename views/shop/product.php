@@ -1,25 +1,32 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\ContactForm */
+/* @var $item \app\models\Product */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Магазин';
+$this->title = $item->getField('name');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
     <h1 class="page-header"><?= Html::encode($this->title) ?></h1>
 
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <p>
-                Магазин
-            </p>
-            <?= $this->render('_template', ['rows' => $rows]) ?>
+        <div class="col-lg-4">
+            <img src="<?= $item->getField('image') ?>" width="100%" class="thumbnail" />
+        </div>
+        <div class="col-lg-8">
+            <?= $item->getField('content') ?>
+            <hr>
+            <a
+                href="<?= \yii\helpers\Url::to(['shop/buy', 'id' => $item->getId()]) ?>"
+                class="btn btn-success btn-lg"
+                style="width: 100%"
+                >
+                <?= Yii::$app->formatter->asDecimal($item->getField('price'), 0) ?> руб.
+            </a>
         </div>
     </div>
 

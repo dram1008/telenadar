@@ -62,6 +62,8 @@ return [
     'admin/news/<id:\\d+>/subscribe'                               => 'admin_news/subscribe',
 
     'shop'                                                         => 'shop/index',
+    'shop/<id:\\d+>'                                               => 'shop/category',
+    'shop/product/<id:\\d+>'                                       => 'shop/product',
 
 
     '/'                                                            => 'site/index',

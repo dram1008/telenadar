@@ -1,27 +1,30 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\ContactForm */
+/* @var $item \app\models\Category */
+/* @var $items array tel_product.* */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Магазин';
+$this->title = $item->getField('name');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
     <h1 class="page-header"><?= Html::encode($this->title) ?></h1>
 
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <p>
-                Магазин
-            </p>
-            <?= $this->render('_template', ['rows' => $rows]) ?>
+    <?php foreach($items as $i) { ?>
+        <?php $url = \yii\helpers\Url::to(['shop/product', 'id' => $i['id'] ]) ?>
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="<?= $url ?>"><img src="<?= $i['image'] ?>" width="100%" class="thumbnail" /></a>
+            </div>
+            <div class="col-lg-8">
+                <a href="<?= $url ?>"><?= $i['name'] ?></a>
+            </div>
         </div>
-    </div>
+    <?php } ?>
 
 
     <hr>
